@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="Varcontatiro" sid="743938698323874" static="0" type="number">0</variable>
+        <event-block sid="290880806221660">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="874196501932445" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="963596651081288" type="Tiro">
+                    <param id="0" name="Angle">270</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="327414132709989" type="Espaco">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="691703184621975" type="inimigo">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="172489383847050" type="asteroid">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="377729234622347" type="Sprite">
+                    <param id="0" name="Angle">270</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="703361016349675">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="746813509013285" type="System">
+                    <param id="0" name="Interval (seconds)">0.3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="147154844019521" type="Gerador">
+                    <param id="0" name="Object">inimigo</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="129379114885827">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="317845342164805" type="Tiro">
+                    <param id="0" name="Object">inimigo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Fade" id="1" name="Start fade" sid="513266024679200" type="inimigo" />
+                <action id="-9" name="Destroy" sid="184299763168356" type="Tiro" />
+            </actions>
+        </event-block>
+        <event-block sid="314200723576212">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="832277157341784" type="inimigo">
+                    <param id="0" name="Object">nave</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="602989721039784" type="nave" />
+                <action id="-16" name="Wait" sid="603120901218503" type="System">
+                    <param id="0" name="Seconds">2.0</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="574186427097781" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="348441870551751">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="368973456728150" type="inimigo">
+                    <param id="0" name="Object">sensor</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="288387453115496" type="nave" />
+                <action id="-16" name="Wait" sid="929310469421247" type="System">
+                    <param id="0" name="Seconds">2.0</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="408856372427494" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="401651768750310">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="358512769442485" type="System">
+                    <param id="0" name="Variable">Varcontatiro</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="869567157009459">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="455947872685944" type="Keyboard">
+                            <param id="0" name="Key">67 (C)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="906905209655111" type="nave">
+                            <param id="0" name="Object">Tiro</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="853991088624149">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="447412632927384" type="Keyboard">
+                            <param id="0" name="Key">86 (V)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="835130737116740" type="nave">
+                            <param id="0" name="Object">Sprite</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="424843793447067">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="842256286059333" type="Tiro" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="374006629410761" type="System">
+                    <param id="0" name="Variable">Varcontatiro</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="480625130893873">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="655624026978171" type="System">
+                    <param id="0" name="Interval (seconds)">choose(10,15,20)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="104449431887379" type="Gerador">
+                    <param id="0" name="Object">asteroid</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="211681148775019">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="559176683123551" type="Sprite">
+                    <param id="0" name="Object">asteroid</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Fade" id="1" name="Start fade" sid="766812688442785" type="asteroid" />
+                <action id="-9" name="Destroy" sid="747000769515137" type="Sprite" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
